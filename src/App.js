@@ -1,21 +1,29 @@
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
 
 function App() {
+  const [message, setMessage] = useState(null);
+
+  useEffect(() => {
+    // create a method that gets a messaege from the /api/messages endpoint
+    async function getMessage() {
+      const response = await fetch("/api/message");
+      const data = await response.json();
+      setMessage(data.message);
+    }
+
+    getMessage();
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src="https://i.imgur.com/xf6bG3Z.png" className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <img
+          src="https://i.imgur.com/xf6bG3Z.png"
+          className="App-logo"
+          alt="logo"
+        />
+        <h1>{message}</h1>
       </header>
     </div>
   );

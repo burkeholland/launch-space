@@ -11,11 +11,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const httpTrigger = function (context, req) {
     return __awaiter(this, void 0, void 0, function* () {
-        // return a string with a message
-        const message = "Hello Launch Space";
+        const message = "hello launch space";
         context.res = {
             // status: 200, /* Defaults to 200 */
-            body: { message: message },
+            body: { message: message }
         };
     });
 };
