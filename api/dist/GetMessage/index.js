@@ -14,7 +14,7 @@ const httpTrigger = function (context, req) {
         const message = "hello launch space";
         context.res = {
             // status: 200, /* Defaults to 200 */
-            body: { message: message }
+            body: { message: process.env.MESSAGE }
         };
     });
 };
